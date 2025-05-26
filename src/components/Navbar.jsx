@@ -33,7 +33,7 @@ const Navbar = () => {
             alt="Eduquant Logo"
             className="logo-image"
           />
-          <span className="logo-text">EyeAge</span>
+          <span className="logo-text">eyeage</span>
         </Link>
       </div>
 

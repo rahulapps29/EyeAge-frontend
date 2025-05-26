@@ -23,7 +23,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1 className="welcome-heading">
-        Welcome to <span className="brand">EyeAge</span>, {user?.firstName}!
+        Welcome to <span className="brand">eyeage</span>, {user?.firstName}!
       </h1>
 
       <div className="dashboard-grid">
@@ -41,6 +41,7 @@ const Dashboard = () => {
       </div>
 
       <div className="entries-section">
+        {/* ---------- MY ENTRIES ---------- */}
         <h2>📋 My Eye Entries</h2>
         {loading ? (
           <p>Loading entries...</p>
@@ -62,7 +63,9 @@ const Dashboard = () => {
               <p>
                 <strong>Shared With:</strong>{" "}
                 {entry.sharedWith?.length > 0
-                  ? entry.sharedWith.length + " user(s)"
+                  ? entry.sharedWith
+                      .map((u) => u?.email || "Unknown")
+                      .join(", ")
                   : "Not shared"}
               </p>
             </div>
@@ -71,6 +74,7 @@ const Dashboard = () => {
           <p>No entries found.</p>
         )}
 
+        {/* ---------- SHARED ENTRIES ---------- */}
         <h2>🤝 Entries Shared With Me</h2>
         {loading ? (
           <p>Loading shared entries...</p>
@@ -78,8 +82,19 @@ const Dashboard = () => {
           sharedEntries.map((entry) => (
             <div key={entry._id} className="entry-card shared">
               <p>
-                <strong>From:</strong> {entry.user?.firstName || "Unknown"}
+                <strong>From:</strong>{" "}
+                {entry.user?.firstName || entry.user?.email ? (
+                  <>
+                    {`${entry.user.firstName ?? ""} ${
+                      entry.user.lastName ?? ""
+                    }`.trim()}{" "}
+                    ({entry.user.email})
+                  </>
+                ) : (
+                  "Unknown"
+                )}
               </p>
+
               <p>
                 <strong>Created:</strong>{" "}
                 {new Date(entry.createdAt).toLocaleString()}
@@ -99,6 +114,7 @@ const Dashboard = () => {
         )}
       </div>
 
+      {/* ---------- MODAL ---------- */}
       {showModal && (
         <div className="modal-overlay" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

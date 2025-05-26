@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
       <Navbar />
       <main className="main-content">{children}</main>
       <footer className="footer">
-        <p>EyeAge © {new Date().getFullYear()}</p>
+        <p>eyeage © {new Date().getFullYear()}</p>
       </footer>
     </div>
   );

@@ -14,7 +14,7 @@ const Hero = () => {
             Monitor Your Eye Health <span className="highlight">Smartly</span>
           </h1>
           <p className="hero-subtext">
-            EyeAge helps you track left and right eye readings with precision
+            eyeage helps you track left and right eye readings with precision
             and visualize changes over time.
           </p>
 

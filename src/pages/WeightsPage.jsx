@@ -58,7 +58,7 @@ const WeightsPage = () => {
 
   return (
     <div className="weights-page">
-      <h1>EyeAge</h1>
+      <h1>eyeage</h1>
       <div className="weights-container">
         <div className="weights-chart">
           <WeightChart entries={entries} />

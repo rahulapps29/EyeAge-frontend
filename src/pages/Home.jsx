@@ -17,7 +17,7 @@ const Home = () => {
 
         {/* Features Section */}
         <section className="features-section">
-          <h2 className="section-title">Why Use EyeAge?</h2>
+          <h2 className="section-title">Why Use eyeage?</h2>
           <div className="features-grid">
             <div className="feature-card">
               <h3>🔍 Accurate Logging</h3>
